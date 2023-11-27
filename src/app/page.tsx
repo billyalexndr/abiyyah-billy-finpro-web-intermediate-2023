@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from "react";
+"use client";
+import React from "react";
+import MovieList from "@/components/MovieList";
+// import TrendingMovie from "components/cover";
 
-const MovieList = () => {
-    const [movies, setMovies] = useState([]);
-
-    const fetchMovies = async () => {
-        try {
-            const response = await fetch(
-                "https://api.themoviedb.org/3/discover/movie?api_key=e64500ed35aa80d6aa47b51eaca63cbf"
-            );
-            const data = await response.json();
-            setMovies(data.result);
-            console.log(data);
-        } catch (error) {
-            console.error("Error fetching movies:", error);
-        }
-    };
-
-    useEffect(() => {
-        fetchMovies();
-    }, []);
-
-    return <></>;
+type TMovie = {
+    id: number;
+    title: string;
+    release_date: string;
+    popularity: number;
+    vote_average: number;
+    overview: string;
+    poster_path: string;
 };
 
-export default MovieList;
+interface HomeProps {
+    movies: TMovie[];
+}
+
+const Home = ({ movies }: HomeProps) => {
+    return <MovieList movies={movies} />;
+};
+
+export default Home;
