@@ -25,13 +25,16 @@ const MovieList = () => {
     <div>
       <h1>Daftar Film</h1>
       <div className="movies-container">
-        {/* {movies.map((movie) => (
-                    <div key={movie.id} className="movie-card">
-                        <h2>{movie.Title}</h2>
-                        <p>Year: {movie.Year}</p>
-                        <img src={movie.Poster} alt={movie.Title} />
-                    </div>
-                ))} */}
+        {movies.map((movie) => (
+          <div key={movie.id} className="movie-card">
+            <h2>{movie.title}</h2>
+            <p>Release Date: {movie.release_date}</p>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
