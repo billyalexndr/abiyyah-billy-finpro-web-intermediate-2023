@@ -20,7 +20,7 @@ const MovieList: React.FC = () => {
     const getMovies = async () => {
         try {
             const response = await axios.get(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
             );
             setMovies(response.data.results);
             console.log(response.data.results);
