@@ -8,6 +8,8 @@ interface Movie {
     title: string;
     release_date: string;
     poster_path: string;
+    path: string;
+    idMovie: number;
 }
 
 const MovieList: React.FC = () => {
@@ -38,6 +40,8 @@ const MovieList: React.FC = () => {
                         title={movie.title}
                         description={`Release Date: ${movie.release_date}`}
                         imageUrl={`${process.env.NEXT_PUBLIC_URL_POSTER}${movie.poster_path}`}
+                        path="now-playing"
+                        idMovie={movie.id}
                     />
                 ))}
             </div>
