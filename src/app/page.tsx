@@ -1,48 +1,48 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CardMovie from "@/components/CardMovie";
-
-interface Movie {
-    id: number;
-    title: string;
-    release_date: string;
-    poster_path: string;
-}
+import Link from "next/link";
 
 const MovieList: React.FC = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
-
-    useEffect(() => {
-        getMovies();
-    }, []);
-
-    const getMovies = async () => {
-        try {
-            const response = await axios.get(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-            );
-            setMovies(response.data.results);
-            console.log(response.data.results);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
-
-    return (
-      <div>
-        <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
-          {movies.map((movie) => (
-            <CardMovie
-              key={movie.id}
-              title={movie.title}
-              description={`Release Date: ${movie.release_date}`}
-              imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            />
-          ))}
-        </div>
+  return (
+    <div className="mt-16">
+      <div className="bg-slate-900">
+        <section className="bg-center bg-no-repeat bg-[url('../../public/bg-home.jpg')] bg-gray-700 bg-blend-multiply">
+          <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+              Welcome to <span className="text-red-500">Bb</span>Movie
+            </h1>
+            <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+              Explore Cinematic Wonders: Your Gateway to a World of Movie Magic!
+            </p>
+            <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+              <Link
+                href="/now-playing"
+                className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              >
+                Get started
+                <svg
+                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
-    );
+    </div>
+  );
 };
 
 export default MovieList;
