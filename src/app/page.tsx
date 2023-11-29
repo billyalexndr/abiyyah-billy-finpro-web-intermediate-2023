@@ -30,18 +30,18 @@ const MovieList: React.FC = () => {
     };
 
     return (
-        <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {movies.map((movie) => (
-                    <CardMovie
-                        key={movie.id}
-                        title={movie.title}
-                        description={`Release Date: ${movie.release_date}`}
-                        imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    />
-                ))}
-            </div>
+      <div>
+        <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
+          {movies.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              title={movie.title}
+              description={`Release Date: ${movie.release_date}`}
+              imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            />
+          ))}
         </div>
+      </div>
     );
 };
 
