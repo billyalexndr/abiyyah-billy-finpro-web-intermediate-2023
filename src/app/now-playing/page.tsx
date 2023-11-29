@@ -20,7 +20,7 @@ const MovieList: React.FC = () => {
     const getMovies = async () => {
         try {
             const response = await axios.get(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+                `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
             );
             setMovies(response.data.results);
             console.log(response.data.results);
@@ -30,18 +30,18 @@ const MovieList: React.FC = () => {
     };
 
     return (
-      <div>
-        <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
-          {movies.map((movie) => (
-            <CardMovie
-              key={movie.id}
-              title={movie.title}
-              description={`Release Date: ${movie.release_date}`}
-              imageUrl={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            />
-          ))}
+        <div>
+            <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
+                {movies.map((movie) => (
+                    <CardMovie
+                        key={movie.id}
+                        title={movie.title}
+                        description={`Release Date: ${movie.release_date}`}
+                        imageUrl={`${process.env.NEXT_PUBLIC_URL_POSTER}${movie.poster_path}`}
+                    />
+                ))}
+            </div>
         </div>
-      </div>
     );
 };
 
