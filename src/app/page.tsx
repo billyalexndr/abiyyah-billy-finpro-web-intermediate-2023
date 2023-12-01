@@ -1,8 +1,8 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import CardMovie from "@/components/CardMovie";
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
+import Head from "next/head";
 
 interface Movie {
     id: number;
@@ -33,6 +33,7 @@ const MovieList: React.FC = () => {
             setLoading(false);
         } catch (error) {
             console.error("Error fetching data:", error);
+            setError(true);
         }
     };
 
@@ -46,6 +47,13 @@ const MovieList: React.FC = () => {
 
     return (
         <div>
+            <Head>
+                <title>BbMovie</title>
+                <meta
+                    name="description"
+                    content="Daftar FILM dengan Menggunakan TMDB API"
+                />
+            </Head>
             <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
                 {movies.map((movie) => (
                     <CardMovie
