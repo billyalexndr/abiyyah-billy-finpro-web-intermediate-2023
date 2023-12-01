@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import CardMovie from "@/components/CardMovie";
 import Loading from "@/components/Loading";
