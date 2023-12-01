@@ -18,7 +18,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-slate-950 border-gray-200 dark:bg-gray-900 fixed top-0 w-full z-10">
+    <nav className="bg-slate-950 border-gray-200 fixed top-0 w-full z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 px-10">
         <Link
           href="/"
@@ -70,7 +70,9 @@ export default function Navigation() {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
             {LINKS.map((link) => {
-              const isActive = link.href === pathname;
+              const isActive =
+                pathname === link.href ||
+                (pathname.includes(link.href) && link.href !== "/");
               return (
                 <li key={link.name}>
                   <Link href={link.href} passHref>

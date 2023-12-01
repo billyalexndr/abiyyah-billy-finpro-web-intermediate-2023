@@ -34,7 +34,7 @@ const MovieList: React.FC = () => {
 
   return (
     <div>
-      <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-10">
+      <div className="mt-10 bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-10">
         {movies.map((movie) => (
           <CardMovie
             key={movie.id}
