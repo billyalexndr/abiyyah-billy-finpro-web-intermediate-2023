@@ -8,6 +8,7 @@ import Error from "@/components/Error";
 interface Movie {
     id: number;
     title: string;
+    vote_average: string;
     release_date: string;
     poster_path: string;
     path: string;
@@ -36,7 +37,6 @@ const MovieList: React.FC = () => {
             console.error("Error fetching data:", error);
         }
     };
-
     if (loading) {
         return <Loading />;
     }
@@ -47,12 +47,12 @@ const MovieList: React.FC = () => {
 
     return (
         <div>
-            <div className="bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6">
+            <div className="mt-10 bg-slate-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-10">
                 {movies.map((movie) => (
                     <CardMovie
                         key={movie.id}
                         title={movie.title}
-                        description={`Release Date: ${movie.release_date}`}
+                        rating={`${parseFloat(movie.vote_average).toFixed(2)}`}
                         imageUrl={`${process.env.NEXT_PUBLIC_URL_POSTER}${movie.poster_path}`}
                         path="now-playing"
                         idMovie={movie.id}
