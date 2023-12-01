@@ -1,39 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Error from "@/components/Error";
-import Head from "next/head";
 
 const MovieList: React.FC = () => {
     const [error, setError] = useState<boolean>(false);
 
-<<<<<<< HEAD
-    useEffect(() => {
-        getMovies();
-    }, []);
-
-    const getMovies = async () => {
-        try {
-            const response = await fetch(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-                { next: { revalidate: 3600 } }
-            );
-            const data = await response.json();
-            setMovies(data.results);
-            setLoading(false);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            setError(true);
-        }
-    };
-
-    if (loading) {
-        return <Loading />;
-    }
-
-=======
->>>>>>> origin/final-project
     if (error) {
         return <Error />;
     }
