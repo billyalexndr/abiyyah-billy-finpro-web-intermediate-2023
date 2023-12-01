@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import CardMovie from "@/components/CardMovie";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 
 interface Movie {
     id: number;
@@ -14,6 +15,8 @@ interface Movie {
 
 const MovieList: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false);
 
     useEffect(() => {
         getMovies();
@@ -21,15 +24,25 @@ const MovieList: React.FC = () => {
 
     const getMovies = async () => {
         try {
-            const response = await axios.get(
-                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+            const response = await fetch(
+                `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
+                { next: { revalidate: 3600 } }
             );
-            setMovies(response.data.results);
-            console.log(response.data.results);
+            const data = await response.json();
+            setMovies(data.results);
+            setLoading(false);
         } catch (error) {
             console.error("Error fetching data:", error);
         }
     };
+
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error />;
+    }
 
     return (
         <div>
