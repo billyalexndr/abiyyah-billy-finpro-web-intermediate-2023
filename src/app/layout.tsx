@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { arvo } from "./fonts";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
-
-const inter = Inter({ subsets: ["latin"] });
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "BbMovie",
@@ -17,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={arvo.className}>
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

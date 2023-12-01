@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import axios from "axios";
 import Image from "next/image";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 
 interface MovieDetail {
   title: string;
@@ -17,6 +18,7 @@ const DetailMovie: React.FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [movieDetail, setMovieDetail] = useState<MovieDetail | null>(null);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`;
@@ -25,10 +27,12 @@ const DetailMovie: React.FC = () => {
     console.log(id);
     const fetchMovieDetail = async () => {
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
+          { next: { revalidate: 3600 } }
         );
-        setMovieDetail(response.data);
+        const data = await response.json();
+        setMovieDetail(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
       }
@@ -40,7 +44,11 @@ const DetailMovie: React.FC = () => {
   }, [pathname, searchParams]);
 
   if (!movieDetail) {
-    return <p>Loading...</p>;
+    return <Loading />;
+  }
+
+  if (error) {
+    return <Error />;
   }
 
   return (
