@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 import Error from "@/components/Error";
 
@@ -11,8 +12,15 @@ const MovieList: React.FC = () => {
     return <Error />;
   }
   return (
-    <div className="mt-16">
-      <div className="bg-slate-900">
+    <div>
+      <Head>
+        <title>BbMovie</title>
+        <meta
+          name="description"
+          content="Daftar FILM dengan Menggunakan TMDB API"
+        />
+      </Head>
+      <div className="mt-16 bg-slate-900">
         <section className="bg-center bg-no-repeat bg-[url('../../public/bg-home.jpg')] bg-gray-700 bg-blend-multiply">
           <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
