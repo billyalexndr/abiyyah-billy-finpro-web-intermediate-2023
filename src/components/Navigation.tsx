@@ -18,7 +18,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-slate-950 border-gray-200 fixed top-0 w-full z-10">
+    <nav className="bg-slate-950 border-gray-200 fixed top-0 w-full z-40">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 px-10">
         <Link
           href="/"

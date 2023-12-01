@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { arvo } from "./fonts";
+import { montserrat } from "./fonts";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={arvo.className}>
+      <body className={montserrat.className}>
         <Navigation />
         {children}
         <Footer />

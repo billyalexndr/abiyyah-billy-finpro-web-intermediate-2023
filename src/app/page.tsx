@@ -2,7 +2,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+import Error from "@/components/Error";
+
 const MovieList: React.FC = () => {
+  const [error, setError] = useState<boolean>(false);
+
+  if (error) {
+    return <Error />;
+  }
   return (
     <div className="mt-16">
       <div className="bg-slate-900">
