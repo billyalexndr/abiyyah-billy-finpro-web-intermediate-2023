@@ -9,7 +9,7 @@ interface CardMovieProps {
 
 const CardMovie: React.FC<CardMovieProps> = ({ title, rating, imageUrl }) => {
   return (
-    <div className="max-w-sm bg-slate-800 shadow rounded-lg dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm bg-slate-800 shadow rounded-lg ">
       <a href="#">
         <Image
           className="rounded-t-lg"
@@ -21,13 +21,13 @@ const CardMovie: React.FC<CardMovieProps> = ({ title, rating, imageUrl }) => {
       </a>
       <div className="p-5">
         <a href="#">
-          <h5 className="text-red-500 mb-2 text-base font-bold tracking-tight dark:text-white overflow-hidden whitespace-nowrap hover:whitespace-normal">
+          <h5 className="text-red-500 mb-2 text-base font-bold tracking-tight overflow-hidden whitespace-nowrap hover:whitespace-normal">
             {title}
           </h5>
         </a>
-        <p className="flex mb-3 font-normal text-gray-300 dark:text-gray-400">
+        <p className="flex mb-3 font-normal text-gray-300 ">
           <svg
-            className="w-6 h-6 text-yellow-200 dark:text-white p-1"
+            className="w-6 h-6 text-yellow-200  p-1"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
