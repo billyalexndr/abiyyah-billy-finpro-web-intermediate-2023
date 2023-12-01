@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { arvo } from "./fonts";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
             <body className={arvo.className}>
                 <Navigation />
                 {children}
+                <Footer />
             </body>
         </html>
     );
