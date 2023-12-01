@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**FINAL PROJECT STUDY CLUB WEB INTERMEDIATE KSM ANDROID**
+---------------------------------------------------------
+Abiyyah Putri Rahman | Billy Alexander
+----------------------------------------------------------
 
-## Getting Started
+Nama Aplikasi
+--------------
+BbMovie
 
-First, run the development server:
+Deskripsi
+---------
+Project ini dibuat untuk menyelesaikan Final Project Study Club Web Intermediate KSM Android
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Poin-poin
+---------
+**App directory dan routing (statis dan dinamis)** - 
+Statis terdapat pada Navigation seperti Home, Now Playing, Popular, dst.. Dinamis terdapat pada main section yang berisikan CardMovie
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Environment variable, Next.js configuration, dan JS/TS configuration** - 
+Environment variable digunakan untuk menyimpan API key dan URL dari API yang digunakan, Next.js config digunakan pada pengambilan gambar ke domain yang sudah disediakan, tsconfig digunakan untuk mengarahkan path
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Tailwind CSS, custom font pada Next.js, dan responsive web design** - 
+Tailwind css digunakan di semua bagian code, custom font tersendiri dari google font
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Next Image** - 
+Next image digunakan untuk semua pengambilan gambar
 
-## Learn More
+**React Context dan components (client dan server)** - 
+Digunakan dalam penggunaan navigation, cardMovie, dan Footer
 
-To learn more about Next.js, take a look at the following resources:
+**Metadata (statis dan dinamis), custom error dan loading page, dan error serta loading layout** - 
+Metadata diberikan sebuah title berupa BbMovie dan description Daftar FILM dengan Menggunakan TMDB API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Refactoring Components** - 
+Digunakan pada component CardMovie karna digunakan pada Now Playing, Popular, dan Upcoming
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Deploying proyek Next.js pada Vercel dan SEO checking** - 
+Deploying project sudah dilakukan dengan menggunakan link: https://bb-movie.vercel.app/ setelah dilakukan pengecekan SEO, maka project yang dibuat mendapatkan skor 70 untuk performances, 95 untuk accesibility, 100 untuk best practice, dan 100 untuk SEO
